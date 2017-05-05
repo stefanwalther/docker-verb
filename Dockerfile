@@ -8,4 +8,8 @@ RUN apt-get update && apt-get install -y curl apt-transport-https && \
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
     apt-get update && apt-get install -y yarn
 
+RUN yarn global add verbose/verb#dev verbose/verb-generate-readme
+
+RUN yarn
+
 WORKDIR /workspace
