@@ -1,0 +1,31 @@
+{
+  "name": "docker-verb",
+  "version": "0.1.0",
+  "description": "Run verb by using a docker-container.",
+  "repository": "git@github.com:stefanwalther/docker-verb.git",
+  "author": "Stefan Walther",
+  "license": "MIT",
+  "scripts": {
+    "docs": "verb",
+    "d-build": "docker build -t stefanwalther/verb ."
+  },
+  "verb": {
+    "run": true,
+    "toc": false,
+    "layout": "empty",
+    "tasks": [
+      "readme"
+    ],
+    "plugins": [
+      "gulp-format-md"
+    ],
+    "related": {
+      "list": [ ]
+    },
+    "lint": {
+      "reflinks": true
+    },
+    "reflinks": [
+    ]
+  }
+}
