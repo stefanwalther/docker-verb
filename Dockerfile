@@ -14,4 +14,4 @@ RUN yarn
 
 WORKDIR /app
 
-CMD ["verb"]
+#CMD ["verb"]
