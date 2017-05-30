@@ -23,7 +23,7 @@ dependencies:
 
 test:
   override:
-    # - yarn test-coverage
+     - yarn test
     #- docker run -d -p ${CONTAINER_PORT}:${CONTAINER_PORT} ${CONTAINER_NAME}; sleep 10
     #- curl --retry 10 --retry-delay 5 -v http://localhost:${CONTAINER_PORT}
   post:
