@@ -2,4 +2,7 @@
 
 > Run verb by using a docker-container.
 
-WORK IN PROGRESS
+[![CircleCI](https://circleci.com/gh/stefanwalther/docker-verb.svg?style=svg)](https://circleci.com/gh/stefanwalther/docker-verb)
+
+***WORK IN PROGRESS***
+
