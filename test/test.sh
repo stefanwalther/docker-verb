@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 
+echo "build docker image"
 docker build -t stefanwalther/docker-verb ./../;
+echo "docker image built"
 
+
+echo "run tests"
 docker run \
     --privileged \
     -v ${PWD}/fixtures:/app/fixtures \
@@ -10,3 +14,4 @@ docker run \
     stefanwalther/docker-verb \
     /bin/sh -c \
     "sh /test-verb.sh";
+echo "tests finished"
