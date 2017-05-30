@@ -12,6 +12,6 @@ RUN apt-get update && apt-get install -y curl apt-transport-https && \
 RUN yarn global add verbose/verb#dev verbose/verb-generate-readme
 RUN yarn
 
-WORKDIR /app
+WORKDIR /opt/verb
 
-#CMD ["verb"]
+CMD ["verb"]

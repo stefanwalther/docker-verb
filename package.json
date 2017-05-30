@@ -1,19 +1,19 @@
 {
   "name": "docker-verb",
   "version": "0.1.0",
-  "description": "Run verb by using a docker-container.",
+  "description": "Run verb on Docker.",
   "repository": "git@github.com:stefanwalther/docker-verb.git",
   "author": "Stefan Walther",
   "license": "MIT",
   "scripts": {
-    "docs": "verb",
+    "docs": "docker run -v ${PWD}:/opt/verb stefanwalther/docker-verb",
     "d-build": "docker build -t stefanwalther/verb .",
     "d-run": "docker run -v '/Users/swr/git/stefanwalther/docker-verb/test/fixtures:/workspace' -t -it stefanwalther/verb /bin/bash",
     "test": "cd test && sh test.sh"
   },
   "verb": {
     "run": true,
-    "toc": false,
+    "toc": true,
     "layout": "empty",
     "tasks": [
       "readme"

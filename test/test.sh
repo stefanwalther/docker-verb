@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
+
+echo "--------------"
 echo "build docker image"
 docker build -t stefanwalther/docker-verb ./../;
 echo "docker image built"
 
-
+echo "--------------"
 echo "run tests"
 docker run \
     --privileged \
@@ -14,4 +16,5 @@ docker run \
     stefanwalther/docker-verb \
     /bin/sh -c \
     "sh /test-verb.sh";
+
 echo "tests finished"

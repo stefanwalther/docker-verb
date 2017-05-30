@@ -5,4 +5,4 @@
 * [qlikblog.at](http://qlikblog.at)
 * [github/stefanwalther](https://github.com/stefanwalther)
 * [twitter/waltherstefan](http://twitter.com/waltherstefan)
-* [linkedin](https://www.linkedin.com/in/stefanwalther/)
+* [LinkedIn](https://www.linkedin.com/in/stefanwalther/)
