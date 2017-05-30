@@ -52,3 +52,4 @@ comm -2 -3 /app/fixtures/README.md /app/expected/README.md
 #cleanup;
 
 echo "==> tests successfully finished";
+exit 0;

@@ -3,7 +3,6 @@
 docker build -t stefanwalther/docker-verb ./../;
 
 docker run \
-    -it \
     --privileged \
     -v ${PWD}/fixtures:/app/fixtures \
     -v ${PWD}/expected:/app/expected \
