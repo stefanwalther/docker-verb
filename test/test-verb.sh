@@ -20,8 +20,8 @@ LCYAN='\033[01;36m'
 WHITE='\033[01;37m'
 
 # Icons
-S_CHECK='\u2714'
-S_BULLET='\xE2\x80\xA2'
+S_CHECK='[OK] '
+S_BULLET='- '
 
 SPACE='    '
 
@@ -42,7 +42,7 @@ if [ ! -f /app/fixtures/README.md ]; then
 
 else
     echo
-    echo "${GREEN}${S_CHECK} Test: README.md successfully created.${RESTORE}"
+    echo "${GREEN}${S_CHECK}Test: README.md successfully created.${RESTORE}"
 fi
 
 # compare files
