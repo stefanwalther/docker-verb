@@ -9,7 +9,9 @@
 ## Motivation
 
 [verb](https://github.com/verbose/verb) is a great solution to document projects, create README files, enter [README driven development](https://www.google.de/search?q=readme+driven+development).
-This project helps to make it even easier to use by "dockerizing"ya verb.
+This project helps to make it even easier to use by "dockerizing" verb.
+
+___(By using this solution you do not need to install verb as a global node.js package anymore)___
 
 ## Run
 
