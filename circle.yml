@@ -3,7 +3,7 @@ machine:
     version: 7.6.0
   environment:
     YARN_VERSION: 0.21.3
-    CONTAINER_NAME: stefanwalther/docker-verb
+    CONTAINER_NAME: stefanwalther/verb
     PATH: "${PATH}:${HOME}/.yarn/bin:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
   services:
     - docker

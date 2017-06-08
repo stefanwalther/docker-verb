@@ -16,7 +16,7 @@ ___(By using this solution you do not need to install verb as a global node.js p
 ## Run
 
 ```sh
-$ docker run -v ${PWD}:/opt/verb stefanwalther/docker-verb
+$ docker run -v ${PWD}:/opt/verb stefanwalther/verb
 ```
 
 What does actually happen here?
@@ -33,7 +33,7 @@ I recommend to add a task into your `package.json` file, which triggers the crea
 {
   "name": "Your Repo",
   "scripts": {
-    "docs": "docker run -v ${PWD}:/opt/verb stefanwalther/docker-verb"
+    "docs": "docker run -v ${PWD}:/opt/verb stefanwalther/verb"
   }
 }
 ```
