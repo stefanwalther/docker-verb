@@ -6,7 +6,7 @@
   "author": "Stefan Walther",
   "license": "MIT",
   "scripts": {
-    "docs": "docker run -v ${PWD}:/opt/verb stefanwalther/verb",
+    "docs": "docker run -v ${PWD}:/opt/verb stefanwalther/docker-verb",
     "d-build": "docker build -t stefanwalther/verb .",
     "d-run": "docker run -v '/Users/swr/git/stefanwalther/docker-verb/test/fixtures:/workspace' -t -it stefanwalther/verb /bin/bash",
     "test": "cd test && sh test.sh"

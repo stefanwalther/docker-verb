@@ -4,8 +4,6 @@
 
 [![CircleCI](https://circleci.com/gh/stefanwalther/docker-verb.svg?style=svg)](https://circleci.com/gh/stefanwalther/docker-verb)
 
-<!-- toc --->
-
 ## Motivation
 
 [verb](https://github.com/verbose/verb) is a great solution to document projects, create README files, enter [README driven development](https://www.google.de/search?q=readme+driven+development).
