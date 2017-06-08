@@ -42,7 +42,7 @@ Then, whenever you want to generate your docs, run:
 $ npm run docs
 ```
 
-or (using [yarn](https://yarnpkg.com)) 
+or (using [yarn](https://yarnpkg.com))   
 
 ```sh
 $ yarn docs
@@ -57,6 +57,10 @@ $ yarn docs
 ## Known Issues
 
 ... none known so far ...
+
+## Changelog
+
+See [CHANGELOG file](CHANGELOG.yml)
 
 ## About
 

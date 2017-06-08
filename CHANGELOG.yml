@@ -1,0 +1,8 @@
+v0.2.0:
+  date: "2017-06-09"
+  changes:
+    - "Changed docker image from stefanwalther/docker-verb to stefanwalther/verb"
+v0.1.0:
+  date: "2017-05-30"
+  enhancements:
+    - "Initial commit"
