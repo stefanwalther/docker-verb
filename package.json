@@ -8,7 +8,7 @@
   "scripts": {
     "docs": "docker run -v ${PWD}:/opt/verb stefanwalther/verb",
     "d-build": "docker build -t stefanwalther/verb .",
-    "d-run": "docker run -v '/Users/swr/git/stefanwalther/docker-verb/test/fixtures:/workspace' -t -it stefanwalther/verb /bin/bash",
+    "d-run": "docker run -v ${PWD}/test/fixtures:/workspace -t -it stefanwalther/verb /bin/bash",
     "test": "cd test && sh test.sh"
   },
   "verb": {

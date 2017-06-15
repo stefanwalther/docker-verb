@@ -1,3 +1,7 @@
+v0.2.1:
+  date: "2017-06-15"
+  changes:
+    - "Fix package.json script d-run to not hardcode the path"
 v0.2.0:
   date: "2017-06-09"
   changes:
