@@ -31,7 +31,7 @@ I recommend to add a task into your `package.json` file, which triggers the crea
 {
   "name": "Your Repo",
   "scripts": {
-    "docs": "docker run -v ${PWD}:/opt/verb stefanwalther/verb"
+    "docs": "docker run --rm -v ${PWD}:/opt/verb stefanwalther/verb"
   }
 }
 ```
