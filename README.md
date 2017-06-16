@@ -14,7 +14,7 @@ ___(By using this solution you do not need to install verb as a global node.js p
 ## Run
 
 ```sh
-$ docker run -v ${PWD}:/opt/verb stefanwalther/verb
+$ docker run --rm -v ${PWD}:/opt/verb stefanwalther/verb
 ```
 
 What does actually happen here?
