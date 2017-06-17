@@ -103,6 +103,14 @@ $ npm install -g nodemon
 }
 ```
 
+4) Run docs:watch
+
+```bash
+$ yarn docs:watch
+```
+
+If you are not making any changes to either .verb or any document in ./docs, then your README.md will be re-generated.
+
 ## Installation
 
 ### Prerequisites
