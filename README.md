@@ -117,9 +117,9 @@ If you commit often, you don't want to miss when to run verb, but on the other h
 This is how I manged to achieve this goal:
 
 1) First of all I use [husky](https://github.com/typicode/husky) to be able to add git hooks (precommit, prepublish, etc.)
-2) I combine a `prepush` hook with a custom script which just figures out if running verb is necessary (in this case only if there are changes in the `.verb` file or if anything has changed in the `./docs/` directory.
+2) I combine a `prepush` hook with a custom script which just figures out if running verb is necessary (in this case only if there are changes in the `.verb` file or if anything has changed in the `./docs/` directory).
 
-package.json:
+_package.json:_
 ```sh
   "scripts": {
     "docs-if-necessary": "./scripts/docs-if-necessary.sh",
@@ -128,10 +128,8 @@ package.json:
   }
 ```
 
-./scripts/docs-if-necessary.sh:
-
+_./scripts/docs-if-necessary.sh:_
 ```sh
-
 #!/usr/bin/env bash
 
 if (git status | grep -E "docs/|.verb.md" -q);
@@ -145,7 +143,6 @@ then
   exit 10; 
   
 fi
-
 ```
 
 ## Installation
