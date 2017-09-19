@@ -116,7 +116,7 @@ If you are not making any changes to either .verb or any document in ./docs, the
 If you commit often, you don't want to miss when to run verb, but on the other hand I don't want to run it if not necessary.
 This is how I manged to achieve this goal:
 
-1) First of all I use husky to be able to add git hooks (precommit, prepublish, etc.)
+1) First of all I use [husky](https://github.com/typicode/husky) to be able to add git hooks (precommit, prepublish, etc.)
 2) I combine a `prepush` hook with a custom script which just figures out if running verb is necessary (in this case only if there are changes in the `.verb` file or if anything has changed in the `./docs/` directory.
 
 package.json:
