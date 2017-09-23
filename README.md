@@ -3,7 +3,8 @@
 > Run verb on Docker.
 
 [![CircleCI](https://img.shields.io/circleci/project/github/stefanwalther/docker-verb.svg)](https://circleci.com/gh/stefanwalther/docker-verb/tree/master)
-
+[![ImageLayers Size](https://img.shields.io/imagelayers/image-size/_/ubuntu/latest.svg)](https://hub.docker.com/r/stefanwalther/verb)
+[![ImageLayers Layers](https://img.shields.io/imagelayers/layers/_/ubuntu/latest.svg)](https://hub.docker.com/r/stefanwalther/verb)
 ## Table of Contents
 
 <details>

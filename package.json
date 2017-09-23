@@ -12,7 +12,7 @@
     "d-run": "docker run -it stefanwalther/verb",
     "d-exec": "docker run -it stefanwalther/verb /bin/bash",
     "d-rest-run": "docker run -v ${PWD}/test/fixtures:/workspace -t -it stefanwalther/verb /bin/bash",
-    "test": "cd test && sh test.sh"
+    "test:circleci": "circleci -e CIRCLE_LOCAL=true build"
   },
   "verb": {
     "run": true,
