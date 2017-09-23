@@ -52,6 +52,6 @@ jobs:
       - deploy:
           name: Push image to Docker Hub
           command: |
-            echo Pushing image to docker "$DOCKER_REPO"/"$VER"
+            echo Pushing image to docker "$DOCKER_REPO":"$VER"
             docker push $DOCKER_REPO
 
