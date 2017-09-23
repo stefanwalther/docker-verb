@@ -8,4 +8,4 @@ docker run \
     -v ${PWD}/test-verb.sh:/test-verb.sh \
     stefanwalther/verb \
     /bin/sh -c  \
-    "/test-verb.sh";
+    "./test-verb.sh";
