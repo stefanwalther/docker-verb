@@ -1,30 +1,5 @@
 #!/usr/bin/env bash
 
-RESTORE='\033[0m'
-
-# Misc colors
-RED='\033[00;31m'
-GREEN='\033[00;32m'
-YELLOW='\033[00;33m'
-BLUE='\033[00;34m'
-PURPLE='\033[00;35m'
-CYAN='\033[00;36m'
-LIGHTGRAY='\033[00;37m'
-
-LRED='\033[01;31m'
-LGREEN='\033[01;32m'
-LYELLOW='\033[01;33m'
-LBLUE='\033[01;34m'
-LPURPLE='\033[01;35m'
-LCYAN='\033[01;36m'
-WHITE='\033[01;37m'
-
-# Icons
-S_CHECK='[OK] '
-S_BULLET='- '
-
-SPACE='    '
-
 # Todo: Test test-system: https://github.com/sstephenson/bats
 
 cleanup() {
@@ -33,27 +8,30 @@ cleanup() {
 
 echo "";
 echo "==> run tests:";
+echo "current dir: ${PWD}";
 
-cd /app/fixtures;
+cd $PWD/test/fixtures;
+echo "current dir: ${PWD}";
 cleanup;
-verb;
+docker run --rm -v ${PWD}:/opt/verb stefanwalther/verb
 
-if [ ! -f /app/fixtures/README.md ]; then
+if [ ! -f README.md ]; then
     echo ""
-    echo "==> Test: README.md not found!" 1>&2${RESTORE};
+    echo "==> Test: README.md not found!";
     exit 1;
-
 else
     echo
-    echo "${GREEN}${S_CHECK}Test: README.md successfully created.${RESTORE}"
+    echo "==> Test: README.md successfully created."
 fi
 
 # compare files
-comm -2 -3 /app/fixtures/README.md /app/expected/README.md
+cd ..
+echo "current dir: ${PWD}";
+comm -2 -3 ./fixtures/README.md ./expected/README.md
 
 
 #cleanup;
 
 echo "";
-echo "==> tests successfully finished";
+echo "==> Tests successfully finished";
 exit 0;
