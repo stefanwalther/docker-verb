@@ -37,7 +37,8 @@ jobs:
       - run:
           name: Test
           command: |
-            ./test/test.sh
+            cd test
+            test.sh
       - run:
           name: Login to Docker
           command: docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"
