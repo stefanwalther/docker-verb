@@ -13,7 +13,8 @@ echo "current dir: ${PWD}";
 cd $PWD/test/fixtures;
 echo "current dir: ${PWD}";
 cleanup;
-docker run --rm -v ${PWD}:/opt/verb stefanwalther/verb
+echo "test image: ${TEST_IMAGE}";
+docker run --rm -v ${PWD}:/opt/verb $TEST_IMAGE
 
 if [ ! -f README.md ]; then
     echo ""
