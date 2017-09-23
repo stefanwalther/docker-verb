@@ -45,8 +45,7 @@ jobs:
       - run:
           name: Test verb
           command: |
-            TEST_IMAGE="${DOCKER_REPO:=stefanwalther/verb}:${VER:=latest}"
-            npm run test
+            TEST_IMAGE="${DOCKER_REPO:=stefanwalther/verb}:${VER:=latest}" npm run test
       - run:
           name: Login to Docker
           command: docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"
