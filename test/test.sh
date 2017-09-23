@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-echo "--------------"
+echo "--------------";
+echo "Docker Repo: $DOCKER_REPO";
+echo "Docker version: $VER";
 docker run \
     --privileged \
     -v ${PWD}/fixtures:/app/fixtures \
