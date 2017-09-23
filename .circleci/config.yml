@@ -42,18 +42,18 @@ jobs:
               VER=$(cat ./version.txt)
               docker tag $DOCKER_REPO:$VER $DOCKER_REPO:latest
             fi
-      - run:
-          name: Test verb
-          command: |
-            cd test
-            docker run \
-                --privileged \
-                -v ${PWD}/fixtures:/app/fixtures \
-                -v ${PWD}/expected:/app/expected \
-                -v ${PWD}/test-verb.sh:/test-verb.sh \
-                stefanwalther/verb \
-                /bin/sh -c  \
-                ./test-verb.sh;
+#      - run:
+#          name: Test verb
+#          command: |
+#            cd test
+#            docker run \
+#                --privileged \
+#                -v ${PWD}/fixtures:/app/fixtures \
+#                -v ${PWD}/expected:/app/expected \
+#                -v ${PWD}/test-verb.sh:/test-verb.sh \
+#                stefanwalther/verb \
+#                /bin/sh -c  \
+#                ./test-verb.sh;
       - run:
           name: Login to Docker
           command: docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"
