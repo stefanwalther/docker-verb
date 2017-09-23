@@ -35,6 +35,10 @@ jobs:
             VER=$(cat ./version.txt)
             docker build -t $DOCKER_REPO:$VER .
       - run:
+          name: Test
+          command: |
+            ./test/test.sh
+      - run:
           name: Login to Docker
           command: docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"
       - deploy:
