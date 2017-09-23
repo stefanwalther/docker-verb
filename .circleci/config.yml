@@ -45,6 +45,7 @@ jobs:
       - run:
           name: Test verb
           command: |
+            docker images;
             echo "Docker Repo: $DOCKER_REPO";
             echo "Ver: $VER";
             TEST_IMAGE="${DOCKER_REPO:=stefanwalther/verb}:${VER:=latest}" npm run test
