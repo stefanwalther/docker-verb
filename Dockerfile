@@ -1,33 +1,17 @@
-# -------------------------------------------------------------------
-#                               BASE NODE
-# -------------------------------------------------------------------
-# We need full node as we need git to download from some GitHub repos.
-# -------------------------------------------------------------------
-# We cannot use -alpine straight ahead since we need the git package.
-FROM node:8.4.0 as BASE
+FROM node:7.10
+
+MAINTAINER Stefan Walther <swr-nixda@gmail.com>
+
+# Global install yarn package manager && finally remove unnecessary packages
+RUN apt-get update && apt-get install -y curl apt-transport-https && \
+    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+    apt-get update && apt-get install -y yarn && \
+    apt-get autoremove
+
+RUN yarn global add verbose/verb#dev verbose/verb-generate-readme
+RUN yarn
 
 WORKDIR /opt/verb
-
-RUN npm install -g verbose/verb#dev verbose/verb-generate-readme
-
-## -------------------------------------------------------------------
-##                                RELEASE
-## -------------------------------------------------------------------
-FROM node:8.4.0-alpine as RELEASE
-
-RUN apk update
-RUN apk add bash
-
-WORKDIR /opt/verb
-
-# OK, here we have to copy the symbolic link
-# use npm config get prefix to get the node.js prefix https://stackoverflow.com/questions/18383476/how-to-get-the-npm-global-path-prefix
-# COPY --from=BASE /usr/local/bin/verb /usr/local/bin/verb
-
-# Create the symbolic link
-RUN ln -s /usr/local/lib/node_modules/verb/bin/verb.js /usr/local/bin/verb
-
-# Copy the global packages previously being installed
-COPY --from=BASE /usr/local/lib/node_modules /usr/local/lib/node_modules
 
 CMD ["verb"]
