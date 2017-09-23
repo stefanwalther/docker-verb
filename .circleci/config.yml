@@ -35,7 +35,15 @@ jobs:
             VER=$(cat ./version.txt)
             docker build -t $DOCKER_REPO:$VER .
       - run:
-          name: Test
+          name: Tag image
+          command: |
+            # Only branch "master" is being pushed to Docker Hub
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              VER=$(cat ./version.txt)
+              docker tag $DOCKER_REPO:$VER $DOCKER_REPO:latest
+            fi
+      - run:
+          name: Test verb
           command: |
             cd test
             docker run \
@@ -43,7 +51,7 @@ jobs:
                 -v ${PWD}/fixtures:/app/fixtures \
                 -v ${PWD}/expected:/app/expected \
                 -v ${PWD}/test-verb.sh:/test-verb.sh \
-                $DOCKER_REPO:$VER \
+                stefanwalther/verb \
                 /bin/sh -c  \
                 ./test-verb.sh;
       - run:
@@ -52,11 +60,5 @@ jobs:
       - deploy:
           name: Push image to Docker Hub
           command: |
-            # Only branch "master" is being pushed to Docker Hub
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              VER=$(cat ./version.txt)
-              docker tag $DOCKER_REPO:$VER $DOCKER_REPO:latest
-            fi
             docker push $DOCKER_REPO
-      # test: https://github.com/moby/moby/issues/21280
 
