@@ -25,6 +25,9 @@ jobs:
 
             # If a git tag is not set or if the tag does not match release pattern e.g. v1.2.3, then add the cci build number to the version.
             RELEASE_PATTERN="v[0-9].*"
+
+            # Exclude this when running the local circlci tool
+            # $ circleci -e CIRCLE_LOCAL=true build
             if [ "${CIRCLE_LOCAL}" != "true" ]; then
               if [[ -z "${CIRCLE_TAG}" || ! $CIRCLE_TAG =~ $RELEASE_PATTERN ]]; then
                 VER+="-$CIRCLE_BUILD_NUM"
@@ -34,7 +37,7 @@ jobs:
 
             echo "$VER" > ./version.txt
       - run:
-          name: Build Docker image
+          name: Build Docker image (including tests)
           command: |
             VER=$(cat ./version.txt)
             echo Building image "$DOCKER_REPO":"$VER"
@@ -47,14 +50,6 @@ jobs:
               VER=$(cat ./version.txt)
               docker tag $DOCKER_REPO:$VER $DOCKER_REPO:latest
             fi
-      - run:
-          name: Test verb
-          command: |
-            VER=$(cat ./version.txt)
-            docker images | grep verb;
-            echo Docker Repo: "$DOCKER_REPO";
-            echo Docker Repo Version: "$VER";
-            TEST_IMAGE="${DOCKER_REPO:=stefanwalther/verb}:${VER:=latest}" npm run test
       - run:
           name: Login to Docker
           command: docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"

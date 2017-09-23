@@ -11,8 +11,7 @@
     "d-build": "docker build -t stefanwalther/verb .",
     "d-run": "docker run -it stefanwalther/verb",
     "d-exec": "docker run -it stefanwalther/verb /bin/bash",
-    "d-rest-run": "docker run -v ${PWD}/test/fixtures:/workspace -t -it stefanwalther/verb /bin/bash",
-    "test": "sh ./test/test-verb.sh"
+    "d-rest-run": "docker run -v ${PWD}/test/fixtures:/workspace -t -it stefanwalther/verb /bin/bash"
   },
   "verb": {
     "run": true,
