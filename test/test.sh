@@ -6,6 +6,6 @@ docker run \
     -v ${PWD}/fixtures:/app/fixtures \
     -v ${PWD}/expected:/app/expected \
     -v ${PWD}/test-verb.sh:/test-verb.sh \
-    stefanwalther/verb \
+    $DOCKER_REPO:$VER \
     /bin/sh -c  \
     "./test-verb.sh";
