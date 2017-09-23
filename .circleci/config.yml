@@ -45,7 +45,7 @@ jobs:
                 -v ${PWD}/test-verb.sh:/test-verb.sh \
                 $DOCKER_REPO:$VER \
                 /bin/sh -c  \
-                "./test-verb.sh";
+                ./test-verb.sh;
       - run:
           name: Login to Docker
           command: docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"
