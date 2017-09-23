@@ -42,7 +42,7 @@ jobs:
       - run:
           name: Tag image
           command: |
-            # Only branch "master" is being pushed to Docker Hub
+            # Only branch "master" is being marked as latest
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               docker tag $DOCKER_REPO:$VER $DOCKER_REPO:latest
             fi
@@ -52,6 +52,9 @@ jobs:
       - deploy:
           name: Push image to Docker Hub
           command: |
-            echo Pushing image to docker "$DOCKER_REPO":"$VER"
-            docker push $DOCKER_REPO
+            # Do not push branches to Docker Hub
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              echo Pushing image to docker "$DOCKER_REPO":"$VER"
+              docker push $DOCKER_REPO
+            fi
 
