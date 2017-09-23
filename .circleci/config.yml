@@ -42,10 +42,10 @@ jobs:
               VER=$(cat ./version.txt)
               docker tag $DOCKER_REPO:$VER $DOCKER_REPO:latest
             fi
-      - run:
-          name: Test verb
-          command: |
-            npm run test
+#      - run:
+#          name: Test verb
+#          command: |
+#            npm run test
       - run:
           name: Login to Docker
           command: docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"
