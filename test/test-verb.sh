@@ -7,13 +7,17 @@ cleanup() {
 }
 
 echo "";
-echo "==> run tests:";
-echo "current dir: ${PWD}";
+echo "==> RUN TESTS:";
+echo "    Current dir: ${PWD}";
 
+echo "    Changing dir ...";
 cd $PWD/test/fixtures;
-echo "current dir: ${PWD}";
+
+echo "    Current dir: ${PWD}";
 cleanup;
-echo "test image: ${TEST_IMAGE}";
+echo "    Test image: ${TEST_IMAGE}";
+
+
 docker run --rm -v ${PWD}:/opt/verb $TEST_IMAGE
 
 if [ ! -f README.md ]; then
