@@ -31,13 +31,16 @@ cleanup() {
     rm -rf ./README.md
 }
 
+echo "";
+echo "==> run tests:";
+
 cd /app/fixtures;
 cleanup;
 verb;
 
 if [ ! -f /app/fixtures/README.md ]; then
     echo ""
-    echo "${RED}==> Test: README.md not found!" 1>&2${RESTORE};
+    echo "==> Test: README.md not found!" 1>&2${RESTORE};
     exit 1;
 
 else
@@ -51,5 +54,6 @@ comm -2 -3 /app/fixtures/README.md /app/expected/README.md
 
 #cleanup;
 
+echo "";
 echo "==> tests successfully finished";
 exit 0;
