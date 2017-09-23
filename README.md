@@ -2,7 +2,7 @@
 
 > Run verb on Docker.
 
-[![CircleCI](https://circleci.com/gh/stefanwalther/docker-verb.svg?style=svg)](https://circleci.com/gh/stefanwalther/docker-verb)
+[![CircleCI](https://img.shields.io/circleci/project/github/stefanwalther/docker-verb.svg)](https://circleci.com/gh/stefanwalther/docker-verb/tree/master)
 
 ## Table of Contents
 
