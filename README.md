@@ -1,5 +1,7 @@
 # docker-verb
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/stefanwalther/docker-verb.svg)](https://greenkeeper.io/)
+
 > Run verb on Docker.
 
 [![CircleCI](https://img.shields.io/circleci/project/github/stefanwalther/docker-verb.svg)](https://circleci.com/gh/stefanwalther/docker-verb/tree/master)
