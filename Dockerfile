@@ -1,5 +1,5 @@
 # -------------------------------------------------------------------
-#                               BASE NODE
+#                               BASE IMAGE
 # -------------------------------------------------------------------
 # We need full node as we need git to download from some GitHub repos.
 # -------------------------------------------------------------------
@@ -13,7 +13,7 @@ RUN npm install -g verbose/verb#dev verbose/verb-generate-readme
 ## -------------------------------------------------------------------
 ##                                TEST
 ## -------------------------------------------------------------------
-FROM BASE as test
+FROM BASE as TEST
 
 RUN mkdir /opt/verb/test
 COPY ./test /opt/verb/test
