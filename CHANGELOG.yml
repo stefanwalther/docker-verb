@@ -1,3 +1,7 @@
+v0.2.2:
+  date: "2018-01-20"
+  change:
+    - "Enforce colored output"
 v0.2.1:
   date: "2017-06-15"
   changes:
