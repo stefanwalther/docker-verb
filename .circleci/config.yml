@@ -6,6 +6,7 @@ jobs:
     working_directory: ~/app
     environment:
       DOCKER_REPO: stefanwalther/verb
+      VER: latest
     steps:
       - checkout
       - restore_cache:
@@ -24,32 +25,36 @@ jobs:
 
             # If a git tag is not set or if the tag does not match release pattern e.g. v1.2.3, then add the cci build number to the version.
             RELEASE_PATTERN="v[0-9].*"
-            if [[ -z "${CIRCLE_TAG}" || ! $CIRCLE_TAG =~ $RELEASE_PATTERN ]]; then
-              VER+="-$CIRCLE_BUILD_NUM"
-              npm version $VER --no-git-tag-version
+
+            # Exclude this when running the local circlci tool
+            # $ circleci -e CIRCLE_LOCAL=true build
+            if [ "${CIRCLE_LOCAL}" != "true" ]; then
+              if [[ -z "${CIRCLE_TAG}" || ! $CIRCLE_TAG =~ $RELEASE_PATTERN ]]; then
+                VER+="-$CIRCLE_BUILD_NUM"
+                npm version $VER --no-git-tag-version
+              fi
             fi
-            echo "$VER" > ./version.txt
       - run:
-          name: Build Docker image
+          name: Build Docker image (including tests)
           command: |
-            VER=$(cat ./version.txt)
+            echo Building image "$DOCKER_REPO":"$VER"
             docker build -t $DOCKER_REPO:$VER .
-#      - run:
-#          name: Test
-#          command: |
-#            cd test
-#            ./test.sh
+      - run:
+          name: Tag image
+          command: |
+            # Only branch "master" is being marked as latest
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              docker tag $DOCKER_REPO:$VER $DOCKER_REPO:latest
+            fi
       - run:
           name: Login to Docker
           command: docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"
       - deploy:
           name: Push image to Docker Hub
           command: |
-            # Only branch "master" is being pushed to Docker Hub
+            # Do not push branches to Docker Hub
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              VER=$(cat ./version.txt)
-              docker tag $DOCKER_REPO:$VER $DOCKER_REPO:latest
+              echo Pushing image to docker "$DOCKER_REPO":"$VER"
+              docker push $DOCKER_REPO
             fi
-            docker push $DOCKER_REPO
-      # test: https://github.com/moby/moby/issues/21280
 

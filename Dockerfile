@@ -11,6 +11,15 @@ WORKDIR /opt/verb
 RUN npm install -g verbose/verb#dev verbose/verb-generate-readme
 
 ## -------------------------------------------------------------------
+##                                TEST
+## -------------------------------------------------------------------
+FROM BASE as test
+
+RUN mkdir /opt/verb/test
+COPY ./test /opt/verb/test
+RUN ./test/test-verb.sh
+
+## -------------------------------------------------------------------
 ##                                RELEASE
 ## -------------------------------------------------------------------
 FROM node:8.4.0-alpine as RELEASE
