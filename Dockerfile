@@ -18,6 +18,9 @@ FROM node:8.4.0-alpine as RELEASE
 RUN apk update
 RUN apk add bash
 
+# Enables colored output
+ENV FORCE_COLOR=true
+
 WORKDIR /opt/verb
 
 # OK, here we have to copy the symbolic link
