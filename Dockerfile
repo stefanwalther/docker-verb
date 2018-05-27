@@ -8,7 +8,7 @@ FROM node:8.4.0 as BASE
 
 WORKDIR /opt/verb
 
-RUN npm install -g verbose/verb#dev verbose/verb-generate-readme
+RUN npm install -g verbose/verb#dev stefanwalther/verb-generate-readme#npm-fix
 
 ## -------------------------------------------------------------------
 ##                                TEST
