@@ -1,6 +1,10 @@
+v0.2.3:
+  date: "2018-05-27"
+  changes:
+    - "Fix problem in get-pkg, see here https://github.com/verbose/verb-generate-readme/issues/23"
 v0.2.2:
   date: "2018-01-20"
-  change:
+  changes:
     - "Enforce colored output"
 v0.2.1:
   date: "2017-06-15"
