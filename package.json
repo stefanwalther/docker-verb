@@ -25,12 +25,11 @@
       "gulp-format-md"
     ],
     "related": {
-      "list": [ ]
+      "list": []
     },
     "lint": {
       "reflinks": true
     },
-    "reflinks": [
-    ]
+    "reflinks": []
   }
 }
