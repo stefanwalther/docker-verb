@@ -1,6 +1,6 @@
 {
   "name": "docker-verb",
-  "version": "0.3",
+  "version": "0.3.1",
   "description": "Run verb on Docker.",
   "repository": "git@github.com:stefanwalther/docker-verb.git",
   "author": "Stefan Walther",
