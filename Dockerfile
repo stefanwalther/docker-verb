@@ -45,4 +45,11 @@ RUN ln -s /usr/local/lib/node_modules/verb/bin/verb.js /usr/local/bin/verb
 # Copy the global packages previously being installed
 COPY --from=base /usr/local/lib/node_modules /usr/local/lib/node_modules
 
-CMD ["verb"]
+ADD ./scripts/start.sh /
+RUN chmod +x /start.sh
+
+CMD ["/start.sh"]
+
+# Fix
+#RUN rm -f ./README.md
+#CMD ["verb"]

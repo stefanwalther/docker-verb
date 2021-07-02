@@ -1,8 +1,9 @@
-v0.3.x:
+v0.3.2:
   date: "2021-07-03"
   changes:
     - "Update with newest veb-generate-readme"
     - "Update node.js versions"
+    - "Fix an error: Error: ENOENT: no such file or directory, open '/opt/verb/README.md'"
 v0.2.3:
   date: "2018-05-27"
   changes:
