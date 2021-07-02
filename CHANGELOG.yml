@@ -1,3 +1,8 @@
+v0.3.x:
+  date: "2021-07-03"
+  changes:
+    - "Update with newest veb-generate-readme"
+    - "Update node.js versions"
 v0.2.3:
   date: "2018-05-27"
   changes:
