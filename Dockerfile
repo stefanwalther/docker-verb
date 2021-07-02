@@ -11,7 +11,6 @@ FROM node:${NODE_VER} as base
 
 WORKDIR /opt/verb
 
-#RUN npm install -g verbose/verb#dev stefanwalther/verb-generate-readme#npm-fix
 RUN npm install -g verbose/verb#dev verbose/verb-generate-readme
 
 ## -------------------------------------------------------------------
