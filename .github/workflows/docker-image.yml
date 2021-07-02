@@ -29,12 +29,16 @@ jobs:
         id: vars
         run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
 
+      # Build :tag only if there is a tag
       - name: Build the tagged Docker image
+        if: startsWith(github.ref, 'refs/tags/v')
         run: docker build . --file Dockerfile --tag stefanwalther/verb:${{steps.vars.outputs.tag}}
 
       - name: Push the tagged Docker image
+        if: startsWith(github.ref, 'refs/tags/v')
         run: docker push stefanwalther/verb:${{steps.vars.outputs.tag}}
 
+      # Build :latest all the time
       - name: Build the latest Docker image
         run: docker build . --file Dockerfile --tag stefanwalther/verb:latest
 
