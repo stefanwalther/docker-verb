@@ -1,5 +1,5 @@
 ARG NODE_VER="14"
-LABEL authors="Stefan Walther"
+#LABEL authors="Stefan Walther"
 
 # -------------------------------------------------------------------
 #                               BASE NODE
