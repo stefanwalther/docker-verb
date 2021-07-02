@@ -10,5 +10,5 @@ gen-readme:					## Generate README.md (using docker-verb)
 .PHONY: gen-readme
 
 build:							## Build the image
-	npm run d-build
+	npm run build
 .PHONY: d-build
