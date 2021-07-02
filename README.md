@@ -184,7 +184,7 @@ Pull requests and stars are always welcome. For bugs and feature requests, [plea
 I cannot guarantee that I will merge all PRs but I will evaluate them all.
 
 ### License
-Copyright © 2018, Stefan Walther.
+Copyright © 2021, Stefan Walther.
  
 MIT
 

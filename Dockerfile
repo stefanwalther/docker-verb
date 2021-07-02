@@ -4,16 +4,17 @@
 # We need full node as we need git to download from some GitHub repos.
 # -------------------------------------------------------------------
 # We cannot use -alpine straight ahead since we need the git package.
-FROM node:8.4.0 as BASE
+FROM node:8.4.0 as base
 
 WORKDIR /opt/verb
 
-RUN npm install -g verbose/verb#dev stefanwalther/verb-generate-readme#npm-fix
+#RUN npm install -g verbose/verb#dev stefanwalther/verb-generate-readme#npm-fix
+RUN npm install -g verbose/verb#dev verbose/verb-generate-readme
 
 ## -------------------------------------------------------------------
 ##                                TEST
 ## -------------------------------------------------------------------
-FROM BASE as test
+FROM base as test
 
 RUN mkdir /opt/verb/test
 COPY ./test /opt/verb/test
@@ -22,7 +23,7 @@ RUN ./test/test-verb.sh
 ## -------------------------------------------------------------------
 ##                                RELEASE
 ## -------------------------------------------------------------------
-FROM node:8.4.0-alpine as RELEASE
+FROM node:8.4.0-alpine as release
 
 RUN apk update
 RUN apk add bash
