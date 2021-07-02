@@ -1,10 +1,13 @@
+ARG NODE_VER="14"
+LABEL authors="Stefan Walther"
+
 # -------------------------------------------------------------------
 #                               BASE NODE
 # -------------------------------------------------------------------
 # We need full node as we need git to download from some GitHub repos.
 # -------------------------------------------------------------------
 # We cannot use -alpine straight ahead since we need the git package.
-FROM node:8.4.0 as base
+FROM node:${NODE_VER} as base
 
 WORKDIR /opt/verb
 
@@ -23,7 +26,7 @@ RUN ./test/test-verb.sh
 ## -------------------------------------------------------------------
 ##                                RELEASE
 ## -------------------------------------------------------------------
-FROM node:8.4.0-alpine as release
+FROM node:${NODE_VER}-alpine as release
 
 RUN apk update
 RUN apk add bash

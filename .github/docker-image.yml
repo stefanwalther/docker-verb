@@ -1,0 +1,39 @@
+name: Docker Image CI
+on:
+  push:
+    branches: [ master ]
+    tags: [ 'v*.*.*' ]
+  pull_request:
+    branches: [ master]
+
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Login to DockerHub Registry
+        run: echo ${{ secrets.DOCKER_PASS }} | docker login -u ${{ secrets.DOCKER_USER }} --password-stdin
+
+      - name: Get the version
+        id: vars
+        run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
+
+      - name: Build the tagged Docker image
+        run: docker build . --file Dockerfile --tag stefanwalther/verb:${{steps.vars.outputs.tag}
+
+      - name: Push the tagged Docker image
+        run: docker push stefanwalther/verb:${{steps.vars.outputs.tag}}
+
+      - name: Build the latest Docker image
+        run: docker build . --file Dockerfile --tag stefanwalther/verb:latest
+
+      - name: Push the latest Docker image
+        run: docker push stefanwalther/verb:latest
