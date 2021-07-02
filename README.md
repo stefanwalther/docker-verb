@@ -2,8 +2,6 @@
 
 > Run verb on Docker.
 
-[![ImageLayers Size](https://img.shields.io/imagelayers/image-size/_/ubuntu/latest.svg)](https://hub.docker.com/r/stefanwalther/verb)
-[![ImageLayers Layers](https://img.shields.io/imagelayers/layers/_/ubuntu/latest.svg)](https://hub.docker.com/r/stefanwalther/verb)
 ## Table of Contents
 
 <details>
